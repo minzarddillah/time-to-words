@@ -33,9 +33,7 @@ const CONSTANTS = {
 };
 
 function convertTimeToWords(time) {
-  const splitTime = time.split(':');
-  const hours = splitTime[0];
-  const minutes = splitTime[1];
+  const [hours, minutes] = time.split(':');
 
   // TODO: real code goes here!
   if (time === '0:00') {
@@ -47,7 +45,7 @@ function convertTimeToWords(time) {
   } if (minutes > '30') {
     return `${CONSTANTS[60 - Number(minutes)]} to ${CONSTANTS[Number(hours) + 1]}`;
   } if (minutes <= '30') {
-    return `${CONSTANTS[Number(hours)]} past ${CONSTANTS[Number(hours)]}`;
+    return `${CONSTANTS[Number(minutes)]} past ${CONSTANTS[Number(hours)]}`;
   }
 
   return 'unhandled';
